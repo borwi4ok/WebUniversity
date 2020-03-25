@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Third lab</title>
+</head>
+<body>
+	<script>
+	
+	
+	//task 1
+	const ITMO_BORN_YEAR = 1990
+	const ITMO_BORN_MONTH = 3
+	const ITMO_BORN_DAY = 26
+
+	//Вопрос: почему месяц увеличился
+	let itmoBornDate = new Date(ITMO_BORN_YEAR, ITMO_BORN_MONTH - 1, ITMO_BORN_DAY)
+
+	console.log(itmoBornDate.toDateString()) // Mon Mar 26 1990
+
+	
+	
+	//task2 
+	// Реализуйте функцию sum
+	function sum() {
+		let acc = 0
+
+		for(let i = 0; i < this.length; i++){
+			acc += this[i]
+		}
+
+		return acc
+	}
+
+	console.log(sum.call([5, 5, 5, 5, 5, 5, 5, 5, 5]));
+
+
+
+	//task3
+	const object1 = {
+		name: 'Boris',
+		weight: 15
+	}
+
+	const object2 = {
+		name: 'Boris',
+		weight: 15
+	}
+
+	const object3 = {
+		name: 'Rex',
+		weight: 20,
+	}
+
+	function isEquivalent(obj1, obj2){
+		let arr1 = [],
+				arr2 = [] 
+
+		for(let prop in obj1)	arr1.push(obj1[prop])
+
+		for(let prop in obj2) arr2.push(obj2[prop])
+
+		if(arr1.length != arr2.length) return false
+
+		for(let i = 0; i < arr1.length; i++){
+			if(arr1[i] != arr2[i]) return false
+		}
+
+		return true
+	}
+
+	console.log(isEquivalent(object1, object3))
+
+
+
+	//task 4
+	function User(name) {
+		this.name = name;
+		this.getName = function(){
+			return name;
+		}
+	}
+
+	const me = new User('Rex');
+
+	console.log(me.getName()); // Rex
+
+
+
+	//task 5
+	// ВОПРОС:КАК это можно через генератор сделать?Можно ли через .next().value???
+	// function createCounter() {
+	// 	return function*(){
+	// 		for(let i = 1; i < Infinity; i++) yield i
+	// 	}
+	// }
+
+	// let ACCUM = 0;
+
+	function createCounter(){
+		let accum = 1;
+		return function(){
+			return accum++
+		}
+	}
+
+	const count = createCounter();
+
+	count(); // 1
+	count(); // 2
+	count(); // 3
+	count(); // 4
+
+	console.log(count()); // 5
+	</script>
+</body>
+</html>
