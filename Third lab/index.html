@@ -27,13 +27,13 @@
 		let acc = 0
 
 		for(let i = 0; i < this.length; i++){
-			acc += this[i]
+			acc += this[i] 
 		}
 
 		return acc
 	}
 
-	console.log(sum.call([5, 5, 5, 5, 5, 5, 5, 5, 5]));
+	console.log(sum.call([5, 5, 5, 5, 5, 5, 5, 5, 5]))
 
 
 
@@ -76,20 +76,22 @@
 
 	//task 4
 	function User(name) {
-		this.name = name;
-		this.getName = function(){
-			return name;
+		this.name = name
 		}
+
+	User.prototype.getName = function(){
+		return name
 	}
 
-	const me = new User('Rex');
+	const me = new User('Rex')
 
-	console.log(me.getName()); // Rex
+	console.log(me.getName()) // Rex
 
 
 
 	//task 5
 	// ВОПРОС:КАК это можно через генератор сделать?Можно ли через .next().value???
+	// как не писать .next().value и получать тот же результат
 	// function createCounter() {
 	// 	return function*(){
 	// 		for(let i = 1; i < Infinity; i++) yield i
@@ -99,20 +101,23 @@
 	// let ACCUM = 0;
 
 	function createCounter(){
-		let accum = 1;
+		let accum = 1
 		return function(){
 			return accum++
 		}
 	}
 
-	const count = createCounter();
+	const count = createCounter()
 
-	count(); // 1
-	count(); // 2
-	count(); // 3
-	count(); // 4
+	count() // 1
+	count() // 2
+	count() // 3
+	count() // 4
 
-	console.log(count()); // 5
+	console.log(count()) // 5
+
+	//собеседования(знания)
+	//нужны ли сейчас фронт-эн
 	</script>
 </body>
 </html>
